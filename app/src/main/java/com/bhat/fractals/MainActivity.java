@@ -110,8 +110,8 @@ public class MainActivity extends Activity implements View.OnTouchListener {
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                //xmin = (m.getX()/width)*zoomFactor + xmin;// - zoomFactor/2;
-                //ymin = (m.getY()/height)*zoomFactor + ymin;// - zoomFactor/2;
+                xmin = (m.getX()/width)*zoomFactor + xmin - zoomFactor/2;
+                ymin = (m.getY()/height)*zoomFactor + ymin - zoomFactor/2;
                 break;
         }
 
@@ -126,10 +126,12 @@ public class MainActivity extends Activity implements View.OnTouchListener {
         fractalView.setOnTouchListener(this);
         setContentView(fractalView);
 
-        //DisplayMetrics metrics = new DisplayMetrics();
-        //getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        //width = metrics.widthPixels;
-        //height = metrics.widthPixels;
+        /*
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        width = metrics.widthPixels;
+        height = metrics.heightPixels;
+        */
 
         fractalBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
     }
